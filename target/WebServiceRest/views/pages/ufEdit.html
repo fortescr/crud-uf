@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<div ng-controller="ufEditCtrl">
+	<form name="frmUf">
+		<div>
+			<a href="#/ufs" role="button" name="back"
+				class="btn btn-default btn-succes">Voltar</a>
+			<button class="btn btn-primary" ng-click="save(uf)"
+				ng-disabled="disabled" ng-disabled="frmUf.$invalid">Salvar</button>
+			<button class="btn btn-danger" ng-click="remove(uf)">Excluir</button>
+		</div>
+
+		<div>
+			
+			<div class="form-group row">
+				<label class="col-md-2 control-label">Nome: </label>
+				<div class="col-md-10">
+					<input type="text" name="descricao" class="form-control"
+						ng-disabled="disabled" ng-model="uf.nome"
+						ng-maxlength="45"> <ing-show="frmUf.titulo.$error.maxlength" class="error">Nome
+						deve ter no máximo 45 caracteres.</i>
+				</div>
+			</div>
+			
+			
+			<div class="form-group row">
+				<label class="col-md-2 control-label">Sigla: </label>
+				<div class="col-md-10">
+					<input type="text" name="descricao" class="form-control"
+						ng-disabled="disabled" ng-model="uf.sigla"
+						ng-maxlength="800"> <i
+						ng-show="frmUf.descricao.$error.maxlength" class="error">Sigla
+						deve ter no máximo 2 caracteres.</i>
+				</div>
+			</div>			
+
+		</div>
+
+		
+	</form>
+
+
+</div>
+

@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<div >
+	<div  ng-controller="ufCtrl">
+		<div >
+			<a href="#/ufEdit/0"> Novo</a>
+		</div>
+		<div class="card-block">		
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Título</th>
+						<th>Descrição</th>
+						<th>Data Inclusão</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="task in tasks">
+						<td>{{uf.titulo}}</td>
+						<td>{{uf.descricao}}</td>
+						<td>{{uf.dataInclusao | date:'dd/MM/yyyy HH:mm'}}</td>
+						<td><a class="tn btn-sm btn-primary"
+							href="#/ufEdit/{{uf.id}}"><i
+								class="fa fa-edit"></i></a>
+							<a class="tn btn-sm btn-danger" ng-click="remove(uf)"><i
+								class="fa fa-times"></i></a></td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
+	</div>
+</div>
