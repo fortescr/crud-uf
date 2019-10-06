@@ -1,0 +1,6 @@
+com\crud\entity\UfEntity.class
+com\crud\dao\GenericDAO.class
+com\crud\http\Uf.class
+com\crud\rest\CrudService.class
+com\crud\util\CORSFilter.class
+com\crud\util\JpaUtil.class

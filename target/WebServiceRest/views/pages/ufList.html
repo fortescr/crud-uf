@@ -1,32 +1,69 @@
 <meta charset="UTF-8">
 <div >
 	<div  ng-controller="ufCtrl">
-		<div >
-			<a href="#/ufEdit/0"> Novo</a>
-		</div>
-		<div class="card-block">		
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Título</th>
-						<th>Descrição</th>
-						<th>Data Inclusão</th>
-						<th>Ações</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="task in tasks">
-						<td>{{uf.titulo}}</td>
-						<td>{{uf.descricao}}</td>
-						<td>{{uf.dataInclusao | date:'dd/MM/yyyy HH:mm'}}</td>
-						<td><a class="tn btn-sm btn-primary"
-							href="#/ufEdit/{{uf.id}}"><i
-								class="fa fa-edit"></i></a>
-							<a class="tn btn-sm btn-danger" ng-click="remove(uf)"><i
-								class="fa fa-times"></i></a></td>
-					</tr>
-				</tbody>
-			</table>			
-		</div>
+	<form name="frmUf" novalidate> 
+		<div>
+				<button ng-click="novo()" 
+					class="btn btn-success">Novo</button>
+				<button class="btn btn-primary" ng-click="save(uf)" type="submit"
+					ng-disabled="disabled" ng-disabled="frmUf.$invalid">Salvar</button>
+				<button class="btn btn-danger" ng-click="remove(uf)">Excluir</button>
+			</div>
+	
+			<div>
+				
+				<div class="form-group row">
+					<label class="col-md-2 control-label">Nome: </label>
+					<div class="col-md-10">
+						<input type="text" id="inNome" name="inNome" class="form-control"
+							ng-disabled="disabled" ng-model="uf.nome" required=""
+							ng-maxlength="45"> 
+							<i ng-show="frmUf.inNome.$error.maxlength" class="error">Nome
+							deve ter no máximo 45 caracteres.</i>
+					</div>
+					
+				</div>
+				
+				
+				<div class="form-group row">
+					<label class="col-md-2 control-label">Sigla: </label>
+					<div class="col-md-10">
+						<input type="text" id="inSigla" name="inSigla" class="form-control"
+							ng-disabled="disabled" ng-model="uf.sigla" required=""
+							ng-maxlength="2"> 
+							<i ng-show="frmUf.inSigla.$error.maxlength" class="error">Sigla
+							deve ter no máximo 2 caracteres.</i>
+					</div>
+			
+					
+				</div>			
+	
+			</div>
+			
+			<div class="card-block">		
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>UF</th>
+							<th>Data Inclusão</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="uf in ufs">
+							<td>{{uf.nome}}</td>
+							<td>{{uf.sigla}}</td>
+							<td>{{uf.dataInclusao | date:'dd/MM/yyyy HH:mm'}}</td>
+							<td><a class="tn btn-sm btn-primary"
+								ng-click="edit(uf)"><i
+									class="fa fa-edit"></i></a>
+								<a class="tn btn-sm btn-danger" ng-click="remove(uf)"><i
+									class="fa fa-times"></i></a></td>
+						</tr>
+					</tbody>
+				</table>			
+			</div>
+		</form>
 	</div>
 </div>

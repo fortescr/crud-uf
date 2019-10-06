@@ -1,6 +1,6 @@
 var appName = 'CRUD';
 
-var headTitle = 'CRUD UF';
+var headTitle = 'CRUD Project';
 
 angular
     .module('app', [
